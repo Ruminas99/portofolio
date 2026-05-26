@@ -84,7 +84,7 @@ export default function App() {
                 Sarjana Komputer | Teknik Informatika
               </p>
               <p className="mt-8 text-lg md:text-2xl lg:text-3xl text-zinc-400 font-light max-w-xl leading-relaxed">
-                Software Developer mengubah masalah digital yang kompleks menjadi <span className="text-white font-medium">solusi yang fungsional & elegan.</span>
+                Saya memiliki ketertarikan mendalam dalam menciptakan <span className="text-white font-medium">pengalaman digital yang intuitif dan responsif.</span>
               </p>
             </div>
 
@@ -125,11 +125,12 @@ export default function App() {
           
           <div className="lg:col-span-7 space-y-8 text-lg md:text-2xl font-light leading-relaxed text-zinc-300">
             <p>
-              Sebagai lulusan <strong className="text-white">Sarjana Teknik Informatika dengan predikat Cum Laude</strong> dari Universitas Methodist Indonesia, saya membangun fondasi yang kuat di bidang teknologi.
+              Sebagai lulusan <strong className="text-white">Sarjana Teknik Informatika dengan predikat Cum Laude</strong> dari Universitas Methodist Indonesia, saya memiliki pengalaman praktis dalam pengembangan aplikasi mobile, web, dan sistem back-end, serta keahlian dalam data science dan machine learning.
             </p>
             <p>
-              Saya adaptif bekerja secara remote maupun dalam tim. Pendekatan saya berpusat pada satu hal: <span className="text-white italic">"Bagaimana teknologi dapat diimplementasikan secara maksimal, namun tetap nyaman digunakan oleh manusia?"</span>
+              Saya adalah tipe orang yang sangat antusias dengan tantangan baru dan selalu proaktif mencari peluang untuk mengembangkan skill. Tujuan saya adalah bergabung dengan tim yang dinamis di mana saya bisa berkontribusi secara nyata sekaligus terus bertumbuh menjadi profesional yang ahli di bidang ini.
             </p>
+
           </div>
         </div>
       </section>
@@ -139,9 +140,41 @@ export default function App() {
         <div className="max-w-7xl w-full">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">Keahlian</h2>
-            <p className="text-zinc-400 max-w-sm text-lg">Lebih dari sekadar barisan kode, ini tentang menciptakan nilai.</p>
           </div>
-
+<div className="flex flex-wrap items-center justify-start gap-8 md:gap-12 mb-16 opacity-80">
+            <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="Kotlin" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <span className="text-[10px] tracking-widest font-bold">KOTLIN</span>
+            </div>
+            <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <span className="text-[10px] tracking-widest font-bold">PYTHON</span>
+            </div>
+            <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <span className="text-[10px] tracking-widest font-bold">PHP</span>
+            </div>
+            <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" alt="Laravel" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <span className="text-[10px] tracking-widest font-bold">LARAVEL</span>
+            </div>
+            <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <span className="text-[10px] tracking-widest font-bold">REACT NATIVE</span>
+            </div>
+            <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <span className="text-[10px] tracking-widest font-bold">TAILWIND</span>
+            </div>
+            <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <span className="text-[10px] tracking-widest font-bold">JAVA</span>
+            </div>
+            <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <span className="text-[10px] tracking-widest font-bold">MYSQL</span>
+            </div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-800">
             {/* Front-End */}
             <div className="bg-zinc-950 p-8 md:p-12 hover:bg-zinc-900 transition-colors group">
@@ -235,10 +268,12 @@ export default function App() {
         {/* Sisi Penjelasan */}
         <div className="w-full h-1/2 lg:w-1/2 lg:h-full flex flex-col justify-center px-8 lg:px-24">
           <div className="text-sm tracking-widest text-zinc-500 font-bold mb-4">01 / PROYEK PENELITIAN</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Sistem Deteksi Video Deepfake</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Sistem Deteksi Video Deepfake <br/><span className="text-zinc-500 text-3xl lg:text-4xl">Sebagai peneliti.</span></h2>
+
           <p className="text-lg lg:text-xl text-zinc-400 font-light leading-relaxed mb-8">
-            Pengembangan model Machine Learning untuk mendeteksi manipulasi video tingkat lanjut. Menggunakan ekstraksi fitur <strong>Local Binary Pattern (LBP)</strong> yang dikombinasikan dengan klasifikasi <strong>Support Vector Machine (SVM)</strong>.
+            Merancang dan mengembangkan model Machine Learning untuk mendeteksi manipulasi video. Menggunakan ekstraksi fitur <strong className="text-white">Local Binary Pattern (LBP)</strong> yang dikombinasikan dengan klasifikasi <strong className="text-white">Support Vector Machine (SVM)</strong>.
           </p>
+
           <div className="flex flex-wrap gap-2">
             <span className="px-4 py-2 border border-zinc-800 rounded-full text-xs tracking-widest font-bold">PYTHON</span>
             <span className="px-4 py-2 border border-zinc-800 rounded-full text-xs tracking-widest font-bold">MACHINE LEARNING</span>
@@ -253,9 +288,9 @@ export default function App() {
         {/* Sisi Penjelasan */}
         <div className="w-full h-1/2 lg:w-1/2 lg:h-full flex flex-col justify-center px-8 lg:px-24 order-2 lg:order-1">
           <div className="text-sm tracking-widest text-zinc-500 font-bold mb-4">02 / WEB APP</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Si Butet<br/><span className="text-zinc-500 text-3xl lg:text-4xl">Sistem Buku Tamu Elektronik</span></h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Si Butet (Sistem Buku Tamu Elektronik)<br/><span className="text-zinc-500 text-3xl lg:text-4xl">Sebagai tim leader & developer.</span></h2>
           <p className="text-lg lg:text-xl text-zinc-400 font-light leading-relaxed mb-8">
-            Sistem informasi berbasis website yang saya bangun untuk mendigitalisasi pencatatan pengunjung di PTUN Medan. Fokus pada efisiensi, keamanan data real-time, dan kemudahan monitoring.
+            Merancang dan mengembangkan sistem informasi berbasis website untuk mendigitalisasi pencatatan pengunjung di PTUN Medan. Fokus pada efisiensi, keamanan data real-time, dan kemudahan monitoring.
           </p>
           <div className="flex flex-wrap gap-2">
             <span className="px-4 py-2 border border-zinc-700 rounded-full text-xs tracking-widest font-bold">WEB DEVELOPMENT</span>
@@ -292,9 +327,9 @@ export default function App() {
         {/* Sisi Penjelasan */}
         <div className="w-full h-1/2 lg:w-1/2 lg:h-full flex flex-col justify-center px-8 lg:px-24">
           <div className="text-sm tracking-widest text-zinc-500 font-bold mb-4">03 / MOBILE APP</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Aplikasi Rekomendasi Wisata</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Aplikasi Rekomendasi Wisata <br/><span className="text-zinc-500 text-3xl lg:text-4xl">Sebagai Android Developer.</span></h2>
           <p className="text-lg lg:text-xl text-zinc-400 font-light leading-relaxed mb-8">
-            Aplikasi mobile interaktif yang menyajikan informasi detail dan memberikan rekomendasi cerdas untuk membantu pengguna dalam merencanakan perjalanan mereka.
+            Merancang dan membangun aplikasi mobile yang menyajikan informasi detail dan memberikan rekomendasi cerdas untuk membantu pengguna dalam merencanakan perjalanan mereka.
           </p>
           <div className="flex flex-wrap gap-2">
             <span className="px-4 py-2 border border-zinc-800 rounded-full text-xs tracking-widest font-bold">KOTLIN</span>
