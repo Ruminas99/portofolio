@@ -11,6 +11,7 @@ const sections = [
   { id: 'about', title: 'Tentang' },
   { id: 'skills', title: 'Keahlian' },
   { id: 'experience', title: 'Pengalaman' },
+  { id: 'certification', title: 'Sertifikasi' },
   { id: 'project-1', title: 'Proyek' },
   { id: 'contact', title: 'Kontak' }
 ];
@@ -48,10 +49,10 @@ export default function App() {
   };
 
   return (
-    <div className="h-screen w-full overflow-y-scroll snap-y snap-mandatory bg-zinc-950 text-zinc-50 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] font-sans selection:bg-white selection:text-zinc-900">
+    <div className="min-h-[100svh] w-full overflow-y-auto lg:overflow-y-scroll snap-none lg:snap-y lg:snap-mandatory bg-zinc-950 text-zinc-50 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] font-sans selection:bg-white selection:text-zinc-900 overflow-x-hidden">
       
       {/* Dot Navigation - Minimalist Style */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-5 mix-blend-difference">
+      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 hidden flex-col gap-5 mix-blend-difference lg:flex">
         {sections.map((section) => (
           <button
             key={section.id}
@@ -72,18 +73,18 @@ export default function App() {
       </div>
 
       {/* SECTION 1: HERO */}
-      <section id="hero" className="min-h-screen w-full snap-start flex flex-col justify-center px-8 lg:px-24 relative overflow-hidden bg-zinc-950">
+      <section id="hero" className="min-h-[100svh] w-full lg:snap-start flex flex-col justify-center px-6 sm:px-8 lg:px-24 py-16 lg:py-0 relative overflow-hidden bg-zinc-950">
         <div className="max-w-7xl z-10 w-full py-20 lg:py-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-5 order-2 lg:order-1 max-w-xl">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] xl:text-[8.5rem] font-bold tracking-tighter leading-[0.9] text-white max-w-fit">
-                <span className="block whitespace-nowrap">ERGY DAVID</span>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[7.5rem] xl:text-[8.5rem] font-bold tracking-tighter leading-[0.9] text-white max-w-fit">
+                <span className="block lg:whitespace-nowrap">ERGY DAVID</span>
                 <span className="block">LUNDY TUMANGGOR</span>
               </h1>
               <p className="mt-6 text-sm md:text-base tracking-widest uppercase font-semibold text-zinc-400">
                 Sarjana Komputer | Teknik Informatika
               </p>
-              <p className="mt-8 text-lg md:text-2xl lg:text-3xl text-zinc-400 font-light max-w-xl leading-relaxed">
+              <p className="mt-8 text-base sm:text-lg md:text-2xl lg:text-3xl text-zinc-400 font-light max-w-xl leading-relaxed">
                 Saya memiliki ketertarikan mendalam dalam menciptakan <span className="text-white font-medium">pengalaman digital yang intuitif dan responsif.</span>
               </p>
             </div>
@@ -109,69 +110,64 @@ export default function App() {
       </section>
 
       {/* SECTION 2: TENTANG SAYA */}
-      <section id="about" className="h-screen w-full snap-start flex flex-col justify-center px-8 lg:px-24 bg-zinc-900">
+      <section id="about" className="min-h-[100svh] w-full lg:snap-start flex flex-col justify-center px-6 sm:px-8 lg:px-24 py-16 lg:py-0 bg-zinc-900">
         <div className="max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">Cerita Saya</h2>
             <div className="w-20 h-1 bg-white mb-8"></div>
-            <div className="flex items-start gap-4 p-6 bg-zinc-800/50 rounded-2xl">
-              <Award className="text-white shrink-0 mt-1" size={28} />
-              <div>
-                <h4 className="font-bold text-lg">Data Analyst (BNSP)</h4>
-                <p className="text-zinc-400 text-sm mt-1">Tersertifikasi resmi oleh Badan Nasional Sertifikasi Profesi.</p>
-              </div>
-            </div>
+            <p className="text-zinc-400 text-base leading-relaxed">
+              Saya percaya produk digital yang baik bukan hanya terlihat menarik, tetapi juga menyelesaikan masalah nyata dengan pengalaman yang nyaman.
+            </p>
           </div>
           
-          <div className="lg:col-span-7 space-y-8 text-lg md:text-2xl font-light leading-relaxed text-zinc-300">
+          <div className="lg:col-span-8 space-y-6 lg:space-y-8 text-base sm:text-lg md:text-2xl font-light leading-relaxed text-zinc-300">
             <p>
               Sebagai lulusan <strong className="text-white">Sarjana Teknik Informatika dengan predikat Cum Laude</strong> dari Universitas Methodist Indonesia, saya memiliki pengalaman praktis dalam pengembangan aplikasi mobile, web, dan sistem back-end, serta keahlian dalam data science dan machine learning.
             </p>
             <p>
               Saya adalah tipe orang yang sangat antusias dengan tantangan baru dan selalu proaktif mencari peluang untuk mengembangkan skill. Tujuan saya adalah bergabung dengan tim yang dinamis di mana saya bisa berkontribusi secara nyata sekaligus terus bertumbuh menjadi profesional yang ahli di bidang ini.
             </p>
-
           </div>
         </div>
       </section>
 
       {/* SECTION 3: KEAHLIAN */}
-      <section id="skills" className="h-screen w-full snap-start flex flex-col justify-center px-8 lg:px-24 bg-zinc-950">
+      <section id="skills" className="min-h-[100svh] w-full lg:snap-start flex flex-col justify-center px-6 sm:px-8 lg:px-24 py-16 lg:py-0 bg-zinc-950">
         <div className="max-w-7xl w-full">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">Keahlian</h2>
           </div>
-<div className="flex flex-wrap items-center justify-start gap-8 md:gap-12 mb-16 opacity-80">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-12 mb-12 md:mb-16 opacity-80">
             <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="Kotlin" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="Kotlin" className="w-8 h-8 md:w-10 md:h-10 grayscale hover:grayscale-0 transition-all" />
               <span className="text-[10px] tracking-widest font-bold">KOTLIN</span>
             </div>
             <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" className="w-8 h-8 md:w-10 md:h-10 grayscale hover:grayscale-0 transition-all" />
               <span className="text-[10px] tracking-widest font-bold">PYTHON</span>
             </div>
             <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" className="w-8 h-8 md:w-10 md:h-10 grayscale hover:grayscale-0 transition-all" />
               <span className="text-[10px] tracking-widest font-bold">PHP</span>
             </div>
             <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" alt="Laravel" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" alt="Laravel" className="w-8 h-8 md:w-10 md:h-10 grayscale hover:grayscale-0 transition-all" />
               <span className="text-[10px] tracking-widest font-bold">LARAVEL</span>
             </div>
             <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" className="w-8 h-8 md:w-10 md:h-10 grayscale hover:grayscale-0 transition-all" />
               <span className="text-[10px] tracking-widest font-bold">REACT NATIVE</span>
             </div>
             <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" className="w-8 h-8 md:w-10 md:h-10 grayscale hover:grayscale-0 transition-all" />
               <span className="text-[10px] tracking-widest font-bold">TAILWIND</span>
             </div>
             <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" className="w-8 h-8 md:w-10 md:h-10 grayscale hover:grayscale-0 transition-all" />
               <span className="text-[10px] tracking-widest font-bold">JAVA</span>
             </div>
             <div className="flex flex-col items-center gap-3 hover:text-white hover:-translate-y-1 transition-all">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" className="w-8 h-8 md:w-10 md:h-10 grayscale hover:grayscale-0 transition-all" />
               <span className="text-[10px] tracking-widest font-bold">MYSQL</span>
             </div>
           </div>
@@ -212,7 +208,7 @@ export default function App() {
       </section>
 
       {/* SECTION 4: PENGALAMAN */}
-      <section id="experience" className="h-screen w-full snap-start flex flex-col justify-center px-8 lg:px-24 bg-zinc-900">
+      <section id="experience" className="min-h-[100svh] w-full lg:snap-start flex flex-col justify-center px-6 sm:px-8 lg:px-24 py-16 lg:py-0 bg-zinc-900">
         <div className="max-w-7xl w-full">
           <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-16">Jejak Karir</h2>
           
@@ -246,17 +242,63 @@ export default function App() {
         </div>
       </section>
 
+      {/* SECTION 5: SERTIFIKASI */}
+      <section id="certification" className="min-h-[100svh] w-full lg:snap-start flex flex-col justify-center px-6 sm:px-8 lg:px-24 py-16 lg:py-0 bg-zinc-950">
+        <div className="max-w-7xl w-full">
+          <div className="flex items-end justify-between mb-10 md:mb-14 gap-6">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter">Sertifikasi</h2>
+            <div className="hidden md:flex items-center gap-3 text-zinc-400 text-sm tracking-widest uppercase">
+              <Award size={16} />
+              Kredensial Profesional
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+            <div className="lg:col-span-5 rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900/50">
+              <img
+                src="images/pkl.jpg"
+                alt="Dokumentasi sertifikasi"
+                className="w-full h-[260px] sm:h-[320px] lg:h-full object-cover"
+              />
+            </div>
+
+            <div className="lg:col-span-7 space-y-6">
+              <div className="rounded-3xl border border-zinc-800 bg-zinc-900/40 p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <GraduationCap className="text-white" size={22} />
+                  <h3 className="text-2xl md:text-3xl font-bold">Data Analyst - BNSP</h3>
+                </div>
+                <p className="text-zinc-300 leading-relaxed text-base md:text-lg">
+                  Sertifikasi resmi dari Badan Nasional Sertifikasi Profesi yang memvalidasi kompetensi analisis data, pengolahan dataset, dan penyajian insight untuk kebutuhan pengambilan keputusan.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-5">
+                  <p className="text-[11px] tracking-widest uppercase text-zinc-500 font-bold mb-2">Status</p>
+                  <p className="text-white font-semibold">Tersertifikasi</p>
+                </div>
+                <div className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-5">
+                  <p className="text-[11px] tracking-widest uppercase text-zinc-500 font-bold mb-2">Fokus</p>
+                  <p className="text-white font-semibold">Data Analysis & Reporting</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* =============================================
-        SECTION 5: PROYEK 
+        SECTION 6: PROYEK 
         Layout Baru: Teks di satu sisi, 2 Gambar bertumpuk di sisi lainnya
         =============================================
       */}
 
       {/* PROYEK 1: DEEPFAKE (Kiri: Gambar, Kanan: Teks) */}
-      <section id="project-1" className="h-screen w-full snap-start flex flex-col lg:flex-row bg-zinc-950">
+      <section id="project-1" className="min-h-[100svh] w-full lg:snap-start flex flex-col lg:flex-row bg-zinc-950 py-4 lg:py-0">
         
         {/* Sisi Gambar (Dibagi Atas Bawah) */}
-        <div className="w-full h-1/2 lg:w-1/2 lg:h-full p-4 lg:p-8 flex flex-col gap-4 bg-zinc-900">
+        <div className="w-full h-[42vh] sm:h-[48vh] lg:w-1/2 lg:h-full p-4 lg:p-8 flex flex-col gap-4 bg-zinc-900">
           <div className="flex-1 rounded-2xl overflow-hidden bg-zinc-800 relative group">
             <img src="https://via.placeholder.com/1200x600/18181b/ffffff?text=Screenshot+Deepfake+1" alt="Deepfake 1" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
           </div>
@@ -266,11 +308,11 @@ export default function App() {
         </div>
 
         {/* Sisi Penjelasan */}
-        <div className="w-full h-1/2 lg:w-1/2 lg:h-full flex flex-col justify-center px-8 lg:px-24">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-8 lg:px-24 py-10 lg:py-0">
           <div className="text-sm tracking-widest text-zinc-500 font-bold mb-4">01 / PROYEK PENELITIAN</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Sistem Deteksi Video Deepfake <br/><span className="text-zinc-500 text-3xl lg:text-4xl">Sebagai peneliti.</span></h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Sistem Deteksi Video Deepfake <br/><span className="text-zinc-500 text-2xl sm:text-3xl lg:text-4xl">Sebagai peneliti.</span></h2>
 
-          <p className="text-lg lg:text-xl text-zinc-400 font-light leading-relaxed mb-8">
+          <p className="text-base sm:text-lg lg:text-xl text-zinc-400 font-light leading-relaxed mb-8">
             Merancang dan mengembangkan model Machine Learning untuk mendeteksi manipulasi video. Menggunakan ekstraksi fitur <strong className="text-white">Local Binary Pattern (LBP)</strong> yang dikombinasikan dengan klasifikasi <strong className="text-white">Support Vector Machine (SVM)</strong>.
           </p>
 
@@ -279,17 +321,26 @@ export default function App() {
             <span className="px-4 py-2 border border-zinc-800 rounded-full text-xs tracking-widest font-bold">MACHINE LEARNING</span>
             <span className="px-4 py-2 border border-zinc-800 rounded-full text-xs tracking-widest font-bold">AI</span>
           </div>
+          <a
+            href="https://github.com/Ruminas99/AI-generated-video-detection"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-full border border-zinc-700 text-sm tracking-widest font-bold hover:bg-white hover:text-zinc-950 transition-colors"
+          >
+            LIHAT PROYEK
+            <ExternalLink size={16} />
+          </a>
         </div>
       </section>
 
       {/* PROYEK 2: SI BUTET (Kiri: Teks, Kanan: Gambar) */}
-      <section id="project-2" className="h-screen w-full snap-start flex flex-col lg:flex-row bg-zinc-900">
+      <section id="project-2" className="min-h-[100svh] w-full lg:snap-start flex flex-col lg:flex-row bg-zinc-900 py-4 lg:py-0">
         
         {/* Sisi Penjelasan */}
-        <div className="w-full h-1/2 lg:w-1/2 lg:h-full flex flex-col justify-center px-8 lg:px-24 order-2 lg:order-1">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-8 lg:px-24 py-10 lg:py-0 order-2 lg:order-1">
           <div className="text-sm tracking-widest text-zinc-500 font-bold mb-4">02 / WEB APP</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Si Butet (Sistem Buku Tamu Elektronik)<br/><span className="text-zinc-500 text-3xl lg:text-4xl">Sebagai tim leader & developer.</span></h2>
-          <p className="text-lg lg:text-xl text-zinc-400 font-light leading-relaxed mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Si Butet (Sistem Buku Tamu Elektronik)<br/><span className="text-zinc-500 text-2xl sm:text-3xl lg:text-4xl">Sebagai tim leader & developer.</span></h2>
+          <p className="text-base sm:text-lg lg:text-xl text-zinc-400 font-light leading-relaxed mb-8">
             Merancang dan mengembangkan sistem informasi berbasis website untuk mendigitalisasi pencatatan pengunjung di PTUN Medan. Fokus pada efisiensi, keamanan data real-time, dan kemudahan monitoring.
           </p>
           <div className="flex flex-wrap gap-2">
@@ -298,10 +349,19 @@ export default function App() {
             <span className="px-4 py-2 border border-zinc-700 rounded-full text-xs tracking-widest font-bold">PHP</span>
             <span className="px-4 py-2 border border-zinc-700 rounded-full text-xs tracking-widest font-bold">MYSQL</span>
           </div>
+          <a
+            href="https://github.com/Ruminas99/buku-tamu"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-full border border-zinc-700 text-sm tracking-widest font-bold hover:bg-white hover:text-zinc-950 transition-colors"
+          >
+            LIHAT PROYEK
+            <ExternalLink size={16} />
+          </a>
         </div>
 
         {/* Sisi Gambar (Dibagi Atas Bawah) */}
-        <div className="w-full h-1/2 lg:w-1/2 lg:h-full p-4 lg:p-8 flex flex-col gap-4 bg-zinc-950 order-1 lg:order-2">
+        <div className="w-full h-[42vh] sm:h-[48vh] lg:w-1/2 lg:h-full p-4 lg:p-8 flex flex-col gap-4 bg-zinc-950 order-1 lg:order-2">
           <div className="flex-1 rounded-2xl overflow-hidden bg-zinc-800 relative group">
             <img src="images/SiButet.png" alt="Si Butet 1" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
           </div>
@@ -312,10 +372,10 @@ export default function App() {
       </section>
 
       {/* PROYEK 3: WISATA (Kiri: Gambar, Kanan: Teks) */}
-      <section id="project-3" className="h-screen w-full snap-start flex flex-col lg:flex-row bg-zinc-950">
+      <section id="project-3" className="min-h-[100svh] w-full lg:snap-start flex flex-col lg:flex-row bg-zinc-950 py-4 lg:py-0">
         
         {/* Sisi Gambar (Dibagi Atas Bawah) - Untuk Mobile App, kita bisa potong bagian gambarnya atau sesuaikan */}
-        <div className="w-full h-1/2 lg:w-1/2 lg:h-full p-4 lg:p-8 flex flex-col gap-4 bg-zinc-900">
+        <div className="w-full h-[42vh] sm:h-[48vh] lg:w-1/2 lg:h-full p-4 lg:p-8 flex flex-col gap-4 bg-zinc-900">
           <div className="flex-1 rounded-2xl overflow-hidden bg-zinc-800 relative group">
             <img src="images/MDev.png" alt="Wisata 1" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 object-top" />
           </div>
@@ -325,10 +385,10 @@ export default function App() {
         </div>
 
         {/* Sisi Penjelasan */}
-        <div className="w-full h-1/2 lg:w-1/2 lg:h-full flex flex-col justify-center px-8 lg:px-24">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-8 lg:px-24 py-10 lg:py-0">
           <div className="text-sm tracking-widest text-zinc-500 font-bold mb-4">03 / MOBILE APP</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Aplikasi Rekomendasi Wisata <br/><span className="text-zinc-500 text-3xl lg:text-4xl">Sebagai Android Developer.</span></h2>
-          <p className="text-lg lg:text-xl text-zinc-400 font-light leading-relaxed mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-tight">Aplikasi Rekomendasi Wisata <br/><span className="text-zinc-500 text-2xl sm:text-3xl lg:text-4xl">Sebagai Android Developer.</span></h2>
+          <p className="text-base sm:text-lg lg:text-xl text-zinc-400 font-light leading-relaxed mb-8">
             Merancang dan membangun aplikasi mobile yang menyajikan informasi detail dan memberikan rekomendasi cerdas untuk membantu pengguna dalam merencanakan perjalanan mereka.
           </p>
           <div className="flex flex-wrap gap-2">
@@ -336,52 +396,79 @@ export default function App() {
             <span className="px-4 py-2 border border-zinc-800 rounded-full text-xs tracking-widest font-bold">ANDROID APP</span>
             <span className="px-4 py-2 border border-zinc-800 rounded-full text-xs tracking-widest font-bold">API</span>
           </div>
+          <a
+            href="https://github.com/jovi345/C242-PS195"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-full border border-zinc-700 text-sm tracking-widest font-bold hover:bg-white hover:text-zinc-950 transition-colors"
+          >
+            LIHAT PROYEK
+            <ExternalLink size={16} />
+          </a>
         </div>
       </section>
 
-      {/* SECTION 6: KONTAK */}
-      <section id="contact" className="h-screen w-full snap-start flex flex-col justify-center px-8 lg:px-24 bg-zinc-950 relative overflow-hidden">
+      {/* SECTION 7: KONTAK */}
+      <section id="contact" className="min-h-[100svh] w-full lg:snap-start flex flex-col justify-start lg:justify-center px-6 sm:px-8 lg:px-24 py-16 lg:py-0 bg-zinc-950 relative overflow-hidden">
         
-        <div className="max-w-5xl z-10">
-          <h2 className="text-6xl md:text-8xl lg:text-[8rem] font-bold tracking-tighter leading-none mb-8">
-            MARI <br className="hidden md:block"/> BERKOLABORASI.
+        <div className="max-w-7xl z-10 w-full">
+          <h2 className="text-[clamp(2.1rem,11vw,7rem)] font-bold tracking-tighter leading-[0.9] mb-8 break-words">
+            MARI BERKOLABORASI.
           </h2>
+          <p className="text-zinc-400 text-base sm:text-lg max-w-2xl leading-relaxed">
+            Terbuka untuk kolaborasi, freelance, dan peluang kerja penuh waktu. Silakan pilih kanal yang paling nyaman untuk menghubungi saya.
+          </p>
           
           <div className="w-full h-px bg-zinc-800 my-12"></div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-xl">
-            <div>
-              <p className="text-zinc-500 text-sm tracking-widest font-bold mb-4">MENGIRIM EMAIL</p>
-              <a href="mailto:ergydavid9145@gmail.com" className="flex items-center gap-3 hover:text-zinc-300 transition-colors group">
-                ergydavid9145@gmail.com
-                <ExternalLink size={20} className="text-zinc-600 group-hover:text-white transition-colors" />
-              </a>
-            </div>
-            <div>
-              <p className="text-zinc-500 text-sm tracking-widest font-bold mb-4">TELEPON / WHATSAPP</p>
-              <a href="https://wa.me/6282165724811" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-zinc-300 transition-colors group">
-                +62 821-6572-4811
-                <ExternalLink size={20} className="text-zinc-600 group-hover:text-white transition-colors" />
-              </a>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 text-base">
+            <a href="mailto:ergydavid9145@gmail.com" className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 hover:border-zinc-600 transition-colors group">
+              <p className="text-zinc-500 text-xs tracking-widest font-bold mb-3">EMAIL</p>
+              <div className="flex items-center gap-3 text-zinc-200 group-hover:text-white">
+                <Mail size={18} />
+                <span className="break-all">ergydavid9145@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="https://wa.me/6282165724811" target="_blank" rel="noreferrer" className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 hover:border-zinc-600 transition-colors group">
+              <p className="text-zinc-500 text-xs tracking-widest font-bold mb-3">WHATSAPP</p>
+              <div className="flex items-center gap-3 text-zinc-200 group-hover:text-white">
+                <Phone size={18} />
+                <span>+62 821-6572-4811</span>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/ergy-david-lundy/" target="_blank" rel="noreferrer" className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 hover:border-zinc-600 transition-colors group md:col-span-2 xl:col-span-1">
+              <p className="text-zinc-500 text-xs tracking-widest font-bold mb-3">LINKEDIN</p>
+              <div className="flex items-center gap-3 text-zinc-200 group-hover:text-white">
+                <FaLinkedin size={18} />
+                <span>ergy-david-lundy</span>
+              </div>
+            </a>
           </div>
 
-          <div className="mt-12">
-            <p className="text-zinc-500 text-sm tracking-widest font-bold mb-4">SOSIAL</p>
-            <div className="flex items-center gap-6 text-zinc-400">
-              <a href="https://github.com/Ruminas99" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+          <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+            <a
+              href="/CV-Ergy-David-Lundy-Tumanggor.txt"
+              download
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-zinc-900 text-sm tracking-widest font-bold hover:bg-zinc-200 transition-colors"
+            >
+              UNDUH CV
+            </a>
+            <div className="flex items-center gap-5 text-zinc-400">
+              <a href="https://github.com/Ruminas99" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors text-sm tracking-widest font-bold">
                 <FaGithub size={22} />
                 <span>GitHub</span>
               </a>
-              <a href="https://www.linkedin.com/in/ergy-david-lundy/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
-                <FaLinkedin size={22} />
-                <span>LinkedIn</span>
+              <a href="https://www.linkedin.com/in/ergy-david-lundy/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors text-sm tracking-widest font-bold">
+                <ExternalLink size={18} />
+                <span>Profil LinkedIn</span>
               </a>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-8 right-8 flex justify-between items-center text-sm font-bold tracking-widest text-zinc-600">
+        <div className="static lg:absolute lg:bottom-8 lg:left-8 lg:right-8 mt-16 lg:mt-0 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-sm font-bold tracking-widest text-zinc-600">
           <span>© 2026 ERGY DAVID L.T.</span>
           <span>PORTOFOLIO</span>
         </div>
