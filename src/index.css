@@ -1,1 +1,98 @@
 @import 'tailwindcss';
+
+:root {
+	--hero-orb-size: clamp(16rem, 28vw, 28rem);
+}
+
+@keyframes float-slow {
+	0%,
+	100% {
+		transform: translate3d(0, 0, 0) scale(1);
+	}
+
+	50% {
+		transform: translate3d(0, -18px, 0) scale(1.04);
+	}
+}
+
+@keyframes fade-rise {
+	from {
+		opacity: 0;
+		transform: translate3d(0, 18px, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes soft-pulse {
+	0%,
+	100% {
+		opacity: 0.45;
+		transform: scale(1);
+	}
+
+	50% {
+		opacity: 0.7;
+		transform: scale(1.06);
+	}
+}
+
+.hero-orb {
+	width: var(--hero-orb-size);
+	height: var(--hero-orb-size);
+	border-radius: 9999px;
+	filter: blur(56px);
+	animation: float-slow 14s ease-in-out infinite;
+}
+
+.hero-orb-secondary {
+	animation-duration: 18s;
+	animation-direction: reverse;
+}
+
+.fade-rise {
+	animation: fade-rise 700ms ease-out both;
+}
+
+.fade-rise-delay-1 {
+	animation-delay: 90ms;
+}
+
+.fade-rise-delay-2 {
+	animation-delay: 180ms;
+}
+
+.fade-rise-delay-3 {
+	animation-delay: 270ms;
+}
+
+.soft-pulse {
+	animation: soft-pulse 6s ease-in-out infinite;
+}
+
+.motion-safe-reveal {
+	transition:
+		transform 280ms ease,
+		opacity 280ms ease,
+		box-shadow 280ms ease,
+		border-color 280ms ease;
+}
+
+.motion-safe-reveal:hover {
+	transform: translate3d(0, -4px, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hero-orb,
+	.soft-pulse,
+	.fade-rise {
+		animation: none !important;
+	}
+
+	.motion-safe-reveal {
+		transition: none !important;
+	}
+}
