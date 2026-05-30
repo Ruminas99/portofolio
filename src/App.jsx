@@ -418,32 +418,20 @@ export default function App() {
         <button
           type="button"
           onClick={() => setIsLanguageMenuOpen((value) => !value)}
-          className={`inline-flex items-center gap-2 rounded-full border bg-zinc-950/85 px-3 py-2 text-xs font-semibold tracking-[0.22em] text-white shadow-2xl shadow-black/30 backdrop-blur-xl transition-all duration-200 hover:border-white/20 hover:bg-zinc-900/90 active:scale-[0.98] sm:hidden ${isLanguageMenuOpen ? 'border-white/25 ring-1 ring-white/10' : 'border-white/10'}`}
+          className={`inline-flex items-center gap-2 rounded-full border bg-zinc-950/85 px-3 py-2 text-xs font-semibold tracking-[0.22em] text-white shadow-2xl shadow-black/30 backdrop-blur-xl transition-all duration-200 hover:border-white/20 hover:bg-zinc-900/90 active:scale-[0.98] ${isLanguageMenuOpen ? 'border-white/25 ring-1 ring-white/10' : 'border-white/10'}`}
           aria-expanded={isLanguageMenuOpen}
           aria-label={copy.languageLabel}
         >
           <Languages size={15} />
+          <span className="hidden sm:inline">{copy.languageLabel}</span>
           <span>{availableLanguages.find((item) => item.code === language)?.shortLabel}</span>
           <ChevronDown size={14} className={`transition-transform duration-200 ${isLanguageMenuOpen ? 'rotate-180' : 'rotate-0'}`} />
         </button>
 
-        <div className="hidden sm:flex items-center gap-2 rounded-full border border-white/10 bg-zinc-950/80 p-2 shadow-2xl shadow-black/30 backdrop-blur-xl">
-          {availableLanguages.map((item) => (
-            <button
-              key={item.code}
-              type="button"
-              onClick={() => setLanguage(item.code)}
-              className={`rounded-full px-3 py-2 text-xs font-semibold tracking-[0.3em] transition-colors ${language === item.code ? 'bg-white text-zinc-950' : 'text-zinc-400 hover:text-white'}`}
-              aria-label={`${copy.languageLabel} ${item.label}`}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-
-        <div className={`absolute right-0 top-full mt-2 w-[min(16rem,calc(100vw-1.5rem))] origin-top-right overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/95 shadow-2xl shadow-black/40 backdrop-blur-xl transition-[opacity,transform,filter] duration-200 ease-out will-change-transform sm:hidden ${isLanguageMenuOpen ? 'pointer-events-auto translate-y-0 scale-100 opacity-100 blur-0' : 'pointer-events-none -translate-y-2 scale-[0.98] opacity-0 blur-[1px]'}`}>
+        <div className={`absolute right-0 top-full mt-2 w-[min(17rem,calc(100vw-1.5rem))] origin-top-right overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/95 shadow-2xl shadow-black/40 backdrop-blur-xl transition-[opacity,transform,filter] duration-200 ease-out will-change-transform sm:w-[20rem] ${isLanguageMenuOpen ? 'pointer-events-auto translate-y-0 scale-100 opacity-100 blur-0' : 'pointer-events-none -translate-y-2 scale-[0.98] opacity-0 blur-[1px]'}`}>
           <div className="border-b border-white/10 px-4 py-3">
             <p className="text-[10px] uppercase tracking-[0.35em] text-zinc-500">{copy.languageLabel}</p>
+            <p className="mt-1 text-sm font-semibold text-white">{copy.languageLabel}</p>
           </div>
           <div className="p-2">
             {availableLanguages.map((item) => {
@@ -456,7 +444,12 @@ export default function App() {
                   onClick={() => setLanguage(item.code)}
                   className={`flex w-full items-center justify-between rounded-xl px-3 py-3 text-left transition-colors ${isActive ? 'bg-white text-zinc-950' : 'text-zinc-300 hover:bg-white/5 hover:text-white'}`}
                 >
-                  <span className="text-sm font-semibold tracking-wide">{item.label}</span>
+                  <span className="flex items-center gap-3 text-sm font-semibold tracking-wide">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-[10px] tracking-[0.25em] text-zinc-400">
+                      {item.shortLabel}
+                    </span>
+                    <span>{item.label}</span>
+                  </span>
                   {isActive ? <Check size={16} /> : <span className="h-2 w-2 rounded-full bg-zinc-600" />}
                 </button>
               );
