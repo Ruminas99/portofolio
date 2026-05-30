@@ -5,10 +5,13 @@ import {
   Database,
   Palette,
   ArrowDownRight,
+  ChevronDown,
   Mail,
   Phone,
   GraduationCap,
   ExternalLink,
+  Languages,
+  Check,
 } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 
@@ -258,10 +261,10 @@ const translations = {
 };
 
 const availableLanguages = [
-  { code: 'id', label: 'Indonesia' },
-  { code: 'en', label: 'English' },
-  { code: 'de', label: 'Deutsch' },
-  { code: 'fr', label: 'Français' },
+  { code: 'id', label: 'Indonesia', shortLabel: 'ID' },
+  { code: 'en', label: 'English', shortLabel: 'EN' },
+  { code: 'de', label: 'Deutsch', shortLabel: 'DE' },
+  { code: 'fr', label: 'Français', shortLabel: 'FR' },
 ];
 
 const desktopSectionOrder = [
@@ -281,6 +284,7 @@ export default function App() {
   const [visibleSection, setVisibleSection] = useState('hero');
   const [isDesktop, setIsDesktop] = useState(false);
   const [language, setLanguage] = useState('id');
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const observer = useRef(null);
   const wheelLockRef = useRef(false);
   const copy = translations[language];
@@ -379,6 +383,25 @@ export default function App() {
     };
   }, [isDesktop, visibleSection]);
 
+  useEffect(() => {
+    const handlePointerDown = (event) => {
+      const target = event.target;
+      if (target instanceof Element && !target.closest('[data-language-switcher]')) {
+        setIsLanguageMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('pointerdown', handlePointerDown);
+
+    return () => {
+      window.removeEventListener('pointerdown', handlePointerDown);
+    };
+  }, []);
+
+  useEffect(() => {
+    setIsLanguageMenuOpen(false);
+  }, [language]);
+
   const scrollToSection = (id) => {
     setVisibleSection(id);
     setActiveSection(getSectionId(id));
@@ -391,18 +414,55 @@ export default function App() {
 
   return (
     <div className="min-h-[100svh] w-full overflow-y-auto lg:overflow-y-scroll snap-none lg:snap-y lg:snap-mandatory bg-zinc-950 text-zinc-50 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] font-sans selection:bg-white selection:text-zinc-900 overflow-x-hidden">
-      <div className="fixed right-6 top-6 z-50 flex items-center gap-2 rounded-full border border-white/10 bg-zinc-950/80 p-2 shadow-2xl shadow-black/30 backdrop-blur-xl">
-        {availableLanguages.map((item) => (
-          <button
-            key={item.code}
-            type="button"
-            onClick={() => setLanguage(item.code)}
-            className={`rounded-full px-3 py-2 text-xs font-semibold tracking-[0.3em] transition-colors ${language === item.code ? 'bg-white text-zinc-950' : 'text-zinc-400 hover:text-white'}`}
-            aria-label={`${copy.languageLabel} ${item.label}`}
-          >
-            {item.label}
-          </button>
-        ))}
+      <div className="fixed right-3 top-3 z-50" data-language-switcher>
+        <button
+          type="button"
+          onClick={() => setIsLanguageMenuOpen((value) => !value)}
+          className={`inline-flex items-center gap-2 rounded-full border bg-zinc-950/85 px-3 py-2 text-xs font-semibold tracking-[0.22em] text-white shadow-2xl shadow-black/30 backdrop-blur-xl transition-all duration-200 hover:border-white/20 hover:bg-zinc-900/90 active:scale-[0.98] sm:hidden ${isLanguageMenuOpen ? 'border-white/25 ring-1 ring-white/10' : 'border-white/10'}`}
+          aria-expanded={isLanguageMenuOpen}
+          aria-label={copy.languageLabel}
+        >
+          <Languages size={15} />
+          <span>{availableLanguages.find((item) => item.code === language)?.shortLabel}</span>
+          <ChevronDown size={14} className={`transition-transform duration-200 ${isLanguageMenuOpen ? 'rotate-180' : 'rotate-0'}`} />
+        </button>
+
+        <div className="hidden sm:flex items-center gap-2 rounded-full border border-white/10 bg-zinc-950/80 p-2 shadow-2xl shadow-black/30 backdrop-blur-xl">
+          {availableLanguages.map((item) => (
+            <button
+              key={item.code}
+              type="button"
+              onClick={() => setLanguage(item.code)}
+              className={`rounded-full px-3 py-2 text-xs font-semibold tracking-[0.3em] transition-colors ${language === item.code ? 'bg-white text-zinc-950' : 'text-zinc-400 hover:text-white'}`}
+              aria-label={`${copy.languageLabel} ${item.label}`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+
+        <div className={`absolute right-0 top-full mt-2 w-[min(16rem,calc(100vw-1.5rem))] origin-top-right overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/95 shadow-2xl shadow-black/40 backdrop-blur-xl transition-[opacity,transform,filter] duration-200 ease-out will-change-transform sm:hidden ${isLanguageMenuOpen ? 'pointer-events-auto translate-y-0 scale-100 opacity-100 blur-0' : 'pointer-events-none -translate-y-2 scale-[0.98] opacity-0 blur-[1px]'}`}>
+          <div className="border-b border-white/10 px-4 py-3">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-zinc-500">{copy.languageLabel}</p>
+          </div>
+          <div className="p-2">
+            {availableLanguages.map((item) => {
+              const isActive = language === item.code;
+
+              return (
+                <button
+                  key={item.code}
+                  type="button"
+                  onClick={() => setLanguage(item.code)}
+                  className={`flex w-full items-center justify-between rounded-xl px-3 py-3 text-left transition-colors ${isActive ? 'bg-white text-zinc-950' : 'text-zinc-300 hover:bg-white/5 hover:text-white'}`}
+                >
+                  <span className="text-sm font-semibold tracking-wide">{item.label}</span>
+                  {isActive ? <Check size={16} /> : <span className="h-2 w-2 rounded-full bg-zinc-600" />}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 hidden flex-col gap-5 mix-blend-difference lg:flex">
@@ -447,7 +507,7 @@ export default function App() {
 
             <div className="lg:col-span-7 order-1 lg:order-2 w-full flex lg:justify-end lg:pl-6 xl:pl-12">
               <div className="motion-safe-reveal w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[500px] lg:ml-auto lg:mr-[-2rem] xl:mr-[-4rem] aspect-[4/5] rounded-[2rem] p-3 bg-gradient-to-br from-white/15 via-white/5 to-white/10 shadow-2xl shadow-black/40 ring-1 ring-white/10 backdrop-blur-sm">
-                <div className="h-full w-full rounded-[1.4rem] overflow-hidden bg-zinc-800 grayscale hover:grayscale-0 transition-all duration-500 relative">
+                <div className="h-full w-full rounded-[1.4rem] overflow-hidden bg-zinc-800 transition-all duration-500 relative">
                   <img
                     src="images/profil.jpg"
                     alt="Ergy David Lundy Tumanggor"
